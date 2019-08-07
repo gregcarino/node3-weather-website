@@ -37,7 +37,7 @@ weatherForm.addEventListener('submit', (e) => {
             console.log(data.location) 
             console.log(data.forecast)
             messageOne.textContent = data.location
-            messageTwo.textContent = data.forecast
+            messageTwo.textContent = data.forecast + " Max Temp: "  + data.tempMax + " Min Temp: " + data.tempMin
         })
     })
 })

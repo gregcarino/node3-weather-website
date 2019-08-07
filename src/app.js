@@ -77,7 +77,7 @@ app.get('/weather', (req,res)=>{
                 error
             })
         }
-        forecast(lat, long, (error, {summary}) => {
+        forecast(lat, long, (error, {summary,tempMin,tempMax}) => {
             if(error){
                 return res.send({
                     error
@@ -87,6 +87,8 @@ app.get('/weather', (req,res)=>{
             // console.log('Forecast', summary)
             res.send({
                 forecast: summary,
+                tempMin,
+                tempMax,
                 location: location,
                 address
             })
