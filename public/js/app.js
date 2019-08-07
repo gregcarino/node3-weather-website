@@ -16,7 +16,19 @@ weatherForm.addEventListener('submit', (e) => {
     const location = search.value
     messageOne.textContent = 'Loading'
     messageTwo.textContent = ''
-    fetch('http://localhost:3000/weather?address=' + encodeURIComponent(location)).then((response) => {
+    // fetch('http://localhost:3000/weather?address=' + encodeURIComponent(location)).then((response) => {
+    //     response.json().then((data) => {
+    //         if (data.error) {
+    //             messageOne.textContent = data.error
+    //             return;
+    //         }
+    //         console.log(data.location) 
+    //         console.log(data.forecast)
+    //         messageOne.textContent = data.location
+    //         messageTwo.textContent = data.forecast
+    //     })
+    // })
+    fetch('/weather?address=' + encodeURIComponent(location)).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error
